@@ -2,7 +2,7 @@
 
 ## Description
 
-
+My motivation for this project was to build a timed JavaScript quiz that keeps track of high scores.
 
 ## Installation
 
