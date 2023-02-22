@@ -1,28 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./assets/style.css">
-    <title>JavaScript Quiz</title>
-  </head>
 
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./assets/style.css">
+  <title>JavaScript Quiz</title>
+</head>
 
-    <header>
-      <h2 class="viewHighScores">View High Scores</h2>
-      <h2 class="timer">Time: <span id="countdown"></span></h2>
-    </header>
+<body>
 
-    <div class="container">
-      <h1>Coding Quiz Challenge</h1>
-      <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by 10 seconds!</p>
-      <button id="start">Start Quiz</button>
+  <header>
+    <h2 class="viewHighScores"><a href="./highscores.html">View High Scores</a></h2>
+    <h2 class="timer">Time: <span id="countdown"></span></h2>
+  </header>
+
+  <!-- homescreen view -->
+  <div class="container start">
+    <h1>Coding Quiz Challenge</h1>
+    <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers
+      will penalize your score/time by 10 seconds!</p>
+    <button id="start">Start Quiz</button>
+  </div>
+
+  <!-- quiz view -->
+  <div class="container quiz">
+    <h2 id="question"></h2>
+    <div id="choices">
+      <button id="choice0"></button>
+      <button id="choice1"></button>
+      <button id="choice2"></button>
+      <button id="choice3"></button>
     </div>
+    <div id="checkAnswer"></div>
+  </div>
+
+
+  <!-- input high score -->
+  <div class="container end">
+
+  </div>
+
+  <!-- high scores view -->
+  <div class="container">
+
+  </div>
 
   <script src="./assets/script.js"></script>
-  
-  </body>
+
+</body>
 
 </html>

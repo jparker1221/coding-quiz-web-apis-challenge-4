@@ -10,7 +10,8 @@
     --buttonTextColor: white;
     --buttonBackgroundColor: purple;
     --bottonHoverColor: pink;
-    --ViewHighScoreTextColor: pink;
+    --ViewHighScoreTextColor: purple;
+    --ViewHighScoreHoverColor: pink;
 }
 
 header {
@@ -21,8 +22,17 @@ header {
     padding-top: 20px;
 }
 
+a {
+    text-decoration: none;
+    color: var(--ViewHighScoreTextColor)
+}
+
+a:hover {
+    color: var(--ViewHighScoreHoverColor);
+}
+
 h1 {
-    color: --textColor;
+    color: var(--textColor);
     font-size: 30px;
     font-weight: bold;
     margin: 10px;
@@ -34,12 +44,12 @@ h2 {
 }
 
 p {
-    color: --textColor;
+    color: var(--textColor);
     font-size: 20px;
     margin: 10px;
 }
 
-button {
+.start button {
     color: var(--buttonTextColor);
     background-color: var(--buttonBackgroundColor);
     font-size: 20px;
@@ -50,7 +60,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.start button:hover {
     background-color: var(--bottonHoverColor);
 }
 
@@ -67,4 +77,8 @@ button:hover {
     width: 50%;
     flex-direction: column;
     text-align: center;
+}
+
+.hide {
+    display: none;
 }

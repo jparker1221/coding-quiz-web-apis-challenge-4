@@ -27,23 +27,66 @@ var questionsArray = [
 },
 ];
 
-// variables
+// Selectors
 var timerEl = document.getElementById('countdown');
-var startQuiz = document.getElementById('start');
+var startQuizEl = document.getElementById('start');
+var questionEl = document.getElementById('question');
+var choicesEl = document.getElementById('choices');
+var checkAnswerEl = document.getElementById('checkAnswer');
+var startEl = document.querySelector('.start');
+var button0 = document.getElementById('choice0');
+var button1 = document.getElementById('choice1');
+var button2 = document.getElementById('choice2');
+var button3 = document.getElementById('choice3');
+
+// variables
+var timeInterval;
+var currentIndex = 0;
 
 // quiz timer
 function countdown() {
   var timeLeft = 75;
-  var timeInterval = setInterval(function() {
+  timeInterval = setInterval(function() {
     timerEl.textContent = timeLeft;
     timeLeft--;
-    if(timeLeft === 0) {
+    if(timeLeft <= 0) {
     clearInterval(timeInterval);
     }
   }, 1000);
 }
 
+function renderQuestion() {
+  questionEl.textContent = questionsArray[currentIndex].question;
+
+  questionsArray[currentIndex].choices.forEach(function(choice,index){
+    var choiceBtn = document.getElementById('choice'+index);
+    choiceBtn.textContent = choice;
+    choiceBtn.setAttribute("value",choice);
+  })
+}
+
+function checkAnswer(event) {
+  var userAnswer = event.target.textContent
+  var correctAnswer = questionsArray[currentIndex].answer;
+    if (userAnswer == correctAnswer) {
+        checkAnswerEl.textContent = "Correct!"
+        currentIndex++;
+        renderQuestion()
+    } else {
+        checkAnswerEl.textContent = "Wrong!"
+        currentIndex++;
+        renderQuestion()
+    }
+}
+
 // event listeners for buttons
-startQuiz.addEventListener('click', function() {
+startQuizEl.addEventListener('click', function() {
     countdown();
+    renderQuestion();
+    startEl.setAttribute("class","hide");
 });
+
+button0.addEventListener('click',checkAnswer);
+button1.addEventListener('click',checkAnswer);
+button2.addEventListener('click',checkAnswer);
+button3.addEventListener('click',checkAnswer);
